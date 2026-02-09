@@ -13,15 +13,68 @@
     font-family: Arial, sans-serif;
 }
 
+/* 🔥 SPLASH PAGE */
+#splash{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("https://image2url.com/r2/default/images/1770573060300-9ab34bcd-c165-43f9-810c-3faea2f5d2be.jpg")
+        no-repeat center/cover;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.splash-box{
+    text-align:center;
+    background:rgba(0,0,0,0.6);
+    padding:25px;
+    border-radius:15px;
+    width:90%;
+    max-width:400px;
+}
+
+.splash-box h2{
+    margin-bottom:15px;
+    color:#00e676;
+}
+
+.splash-box p{
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.buy-btn{
+    width:100%;
+    padding:14px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#ff9800;
+    color:#000;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* 🔥 MAIN PAGE */
 body{
     min-height:100vh;
-    background:url("https://image2url.com/r2/default/images/1770562959765-ec1b5241-e2dd-4710-862d-9bc868541cfa.jpg") no-repeat center/cover;
+    background:url("https://image2url.com/r2/default/images/1770572594153-53d84123-c4ee-4c4a-86a4-5d08436d75d6.jpg")
+        no-repeat center/cover;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
 .box{
+    display:none;
     background:rgba(0,0,0,0.7);
     width:90%;
     max-width:420px;
@@ -45,33 +98,54 @@ body{
 
 .ad-box{
     margin:15px 0;
-    overflow:hidden;
 }
 
-.box button{
+button{
     width:100%;
     padding:14px;
     font-size:17px;
     border:none;
     border-radius:8px;
-    background:#00c853;
-    color:#fff;
     cursor:pointer;
+    margin-top:10px;
 }
 
-.box button:hover{
-    background:#00a844;
-}
+.send-btn{ background:#00c853; color:#fff; }
+.sub-btn{ background:#ff0000; color:#fff; }
 
-.box button:active{
-    transform:scale(0.97);
+.message{
+    display:none;
+    margin-top:15px;
+    font-size:16px;
+    font-weight:bold;
+    color:#ffeb3b;
 }
 </style>
 </head>
 
 <body>
 
-<div class="box">
+<!-- 🔊 AUDIO -->
+<audio id="clickSound" src="https://image2url.com/r2/default/audio/1770573305737-f8761bf3-3966-457a-96a2-d6a721bdb0c6.mp3"></audio>
+
+<!-- 🔥 SPLASH PAGE -->
+<div id="splash">
+    <div class="splash-box">
+        <h2>🔥 SUBSCRIBE OFFER 🔥</h2>
+        <p>
+20₹ ➡️ 20 SUBSCRIBER  
+50₹ ➡️ 55 SUBSCRIBE  
+100₹ ➡️ 110 SUBSCRIBE
+        </p>
+
+        <button class="buy-btn" onclick="playSound(); openMainPage();">
+            BUY SUBSCRIBER
+        </button>
+    </div>
+</div>
+
+<!-- 🔥 MAIN CONTENT -->
+<div class="box" id="main">
     <img src="https://image2url.com/r2/default/images/1770536762483-e3f8f8d4-e0cb-4ff6-8e2b-252fcac1dd01.jpg">
 
     <p>
@@ -80,7 +154,7 @@ SEND MONEY AND TAKE A SCREENSHOT
 THEN CLICK ON SEND BUTTON
     </p>
 
-    <!-- 🔥 AD START -->
+    <!-- AD -->
     <div class="ad-box">
         <script>
           atOptions = {
@@ -93,12 +167,40 @@ THEN CLICK ON SEND BUTTON
         </script>
         <script src="https://www.highperformanceformat.com/447f59922917e03894802ceaeb8fefcd/invoke.js"></script>
     </div>
-    <!-- 🔥 AD END -->
 
-    <button onclick="window.location.href='https://t.me/Raju93873'">
+    <button class="send-btn" onclick="playSound(); window.location.href='https://t.me/Lokeshrathi1289'">
         SEND
     </button>
+
+    <button class="sub-btn" onclick="playSound(); subscribeNow();">
+        SUBSCRIBE
+    </button>
+
+    <div id="msg" class="message">
+        SUBSCRIBE THE CHANNEL TO GET DISCOUNT
+    </div>
 </div>
+
+<script>
+function playSound(){
+    let audio = document.getElementById("clickSound");
+    audio.currentTime = 0;
+    audio.play();
+}
+
+function openMainPage(){
+    document.getElementById("splash").style.display = "none";
+    document.getElementById("main").style.display = "block";
+}
+
+function subscribeNow(){
+    document.getElementById("msg").style.display = "block";
+    setTimeout(function(){
+        window.location.href =
+          "https://youtube.com/@viralgayacom?si=TSbKW8K0wTVurtof";
+    }, 4000);
+}
+</script>
 
 </body>
 </html>
